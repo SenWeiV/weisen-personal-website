@@ -9,8 +9,8 @@ const nextConfig: NextConfig = {
   },
   // GitHub Pages 部署到 username.github.io/repo-name 需要设置 basePath
   // Vercel 部署在根路径，不需要 basePath
-  basePath: isGitHubPages ? '/personal-portal' : '',
-  assetPrefix: isGitHubPages ? '/personal-portal/' : '',
+  basePath: isGitHubPages ? '/weisen-personal-website' : '',
+  assetPrefix: isGitHubPages ? '/weisen-personal-website/' : '',
 };
 
 export default nextConfig;
