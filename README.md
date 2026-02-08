@@ -6,8 +6,7 @@ A minimal, elegant personal website inspired by [dagn.space](https://dagn.space)
 
 | 平台 | 地址 |
 |------|------|
-| GitHub Pages | https://senweiv.github.io/personal-portal/ |
-| Vercel | https://personal-portal-psi.vercel.app/ |
+| GitHub Pages | https://senweiv.github.io/weisen-personal-website/ |
 
 ## Tech Stack
 
@@ -20,7 +19,7 @@ A minimal, elegant personal website inspired by [dagn.space](https://dagn.space)
 
 - 🌙 Dark theme with elegant typography
 - ✨ Smooth entrance animations
-- ?? Fully responsive design
+- 📱 Fully responsive design
 - 🚀 Fast and optimized
 
 ## Getting Started
