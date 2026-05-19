@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "SenWei | Data Strategy PM Resume",
@@ -9,9 +10,9 @@ export default function DataStrategyResume() {
   return (
     <main className="min-h-screen px-6 md:px-16 lg:px-24 py-24">
       <div className="mb-16">
-        <a href="/" className="font-[var(--font-sans)] text-[13px] text-[#555] hover:text-[#C8C8C8] transition-colors duration-300">
+        <Link href="/" className="font-[var(--font-sans)] text-[13px] text-[#555] hover:text-[#C8C8C8] transition-colors duration-300">
           ← Back
-        </a>
+        </Link>
       </div>
 
       <header className="mb-20">
@@ -240,9 +241,9 @@ export default function DataStrategyResume() {
       </section>
 
       <footer className="border-t border-[#2A2A2A] pt-8">
-        <a href="/" className="font-[var(--font-sans)] text-[13px] text-[#555] hover:text-[#C8C8C8] transition-colors duration-300">
+        <Link href="/" className="font-[var(--font-sans)] text-[13px] text-[#555] hover:text-[#C8C8C8] transition-colors duration-300">
           ← Back to Home
-        </a>
+        </Link>
       </footer>
     </main>
   );
