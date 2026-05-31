@@ -6,7 +6,7 @@ A minimal, elegant personal website inspired by [dagn.space](https://dagn.space)
 
 | 平台 | 地址 |
 |------|------|
-| GitHub Pages | https://senweiv.github.io/weisen-personal-website/ |
+| Custom Domain | https://profile.vincentws.com |
 
 ## Tech Stack
 
