@@ -1,0 +1,523 @@
+/* Final integrated direction: warm editorial shell + OS diagram language + kinetic card geometry. */
+[data-motion-variant] .progress { width: 100%; transform: scaleX(0); transform-origin: left center; }
+[data-motion-variant] .reveal { opacity: 1; transform: none; transition: none !important; }
+[data-motion-variant] .model.reveal,
+[data-motion-variant] .resume-card.reveal,
+[data-motion-variant] .flow.reveal,
+[data-motion-variant] .cap-grid.reveal,
+[data-motion-variant] .edu-card.reveal { opacity: 1; transform: none; }
+[data-motion-variant] .work-item,
+[data-motion-variant] .resume-card,
+[data-motion-variant] .profile-card,
+[data-motion-variant] .job,
+[data-motion-variant] .project-card,
+[data-motion-variant] .rail-card,
+[data-motion-variant] .panel { will-change: auto; }
+[data-motion-variant] .dock a.is-active,
+[data-motion-variant] .mini-dock a.is-active,
+[data-motion-variant] .rail-nav a.is-active { position: relative; }
+[data-motion-variant] .dock a.is-active::after,
+[data-motion-variant] .mini-dock a.is-active::after { content:''; position:absolute; left:50%; bottom:3px; width:16px; height:1px; transform:translateX(-50%); background:var(--warm); opacity:.8; }
+[data-motion-variant] .work-item,
+[data-motion-variant] .resume-card,
+[data-motion-variant] .profile-card,
+[data-motion-variant] .job,
+[data-motion-variant] .project-card,
+[data-motion-variant] .rail-card,
+[data-motion-variant] .panel,
+[data-motion-variant] .flow-step,
+[data-motion-variant] .cap,
+[data-motion-variant] .edu-card,
+[data-motion-variant] .model { position: relative; }
+[data-motion-variant] .work-item::before,
+[data-motion-variant] .work-item::after,
+[data-motion-variant] .resume-card::before,
+[data-motion-variant] .resume-card::after,
+[data-motion-variant] .profile-card::before,
+[data-motion-variant] .profile-card::after,
+[data-motion-variant] .job::before,
+[data-motion-variant] .job::after,
+[data-motion-variant] .project-card::before,
+[data-motion-variant] .project-card::after,
+[data-motion-variant] .rail-card::before,
+[data-motion-variant] .rail-card::after,
+[data-motion-variant] .panel::before,
+[data-motion-variant] .panel::after,
+[data-motion-variant] .flow-step::before,
+[data-motion-variant] .flow-step::after,
+[data-motion-variant] .model::before,
+[data-motion-variant] .model::after { pointer-events: none; }
+
+body[data-motion-variant="synthesis"] {
+  --line: rgba(232,228,216,.14);
+  --line-strong: rgba(232,228,216,.28);
+  --os-green: #91d8a2;
+  --warm: #c9b79d;
+}
+body[data-motion-variant="synthesis"]::before {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(201,183,157,.16), transparent 26vw),
+    radial-gradient(circle at 82% 18%, rgba(145,216,162,.105), transparent 21vw),
+    radial-gradient(circle at 52% 86%, rgba(201,183,157,.075), transparent 28vw),
+    linear-gradient(180deg,#111113 0%,#0b0d0d 50%,#11100f 100%);
+}
+body[data-motion-variant="synthesis"]::after {
+  opacity:.36;
+  background-image:
+    linear-gradient(rgba(201,183,157,.034) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(145,216,162,.026) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+body[data-motion-variant="synthesis"] .prototype-note { display:none; }
+body[data-motion-variant="synthesis"] .progress { background: linear-gradient(90deg, transparent, var(--warm), var(--os-green), var(--ink)); }
+body[data-motion-variant="synthesis"] .dock,
+body[data-motion-variant="synthesis"] .mini-dock {
+  border-radius: 28px 10px 28px 10px;
+  background: rgba(10,11,11,.72);
+  box-shadow: 0 22px 90px rgba(0,0,0,.3), inset 0 0 0 1px rgba(201,183,157,.07), 0 0 44px rgba(145,216,162,.035);
+}
+body[data-motion-variant="synthesis"] .dock::before,
+body[data-motion-variant="synthesis"] .mini-dock::before,
+body[data-motion-variant="synthesis"] .hero-main::before,
+body[data-motion-variant="synthesis"] .hero > .reveal::before,
+body[data-motion-variant="synthesis"] .hero::after,
+body[data-motion-variant="synthesis"] .page .hero::after { content:none; display:none; }
+body[data-motion-variant="synthesis"] .dock a,
+body[data-motion-variant="synthesis"] .mini-dock a { border-radius: 18px 7px 18px 7px; }
+body[data-motion-variant="synthesis"] .hero,
+body[data-motion-variant="synthesis"] .page .hero { position:relative; grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr); }
+body[data-motion-variant="synthesis"] .display-title,
+body[data-motion-variant="synthesis"] h1 { letter-spacing:-.086em; line-height:.86; text-wrap:balance; }
+body[data-motion-variant="synthesis"] .hero-role,
+body[data-motion-variant="synthesis"] .role { color: var(--ink-soft); }
+body[data-motion-variant="synthesis"] .hero-eyebrow,
+body[data-motion-variant="synthesis"] .kicker,
+body[data-motion-variant="synthesis"] .section-kicker,
+body[data-motion-variant="synthesis"] .section-num { color: var(--warm); letter-spacing:.28em; }
+body[data-motion-variant="synthesis"] .availability::before { background: var(--os-green); box-shadow: 0 0 18px rgba(145,216,162,.8); }
+body[data-motion-variant="synthesis"] .work-item,
+body[data-motion-variant="synthesis"] .resume-card,
+body[data-motion-variant="synthesis"] .profile-card,
+body[data-motion-variant="synthesis"] .job,
+body[data-motion-variant="synthesis"] .project-card,
+body[data-motion-variant="synthesis"] .rail-card,
+body[data-motion-variant="synthesis"] .panel {
+  border-color: rgba(201,183,157,.2);
+  border-radius: 34px 10px 34px 10px;
+  background:
+    linear-gradient(135deg, rgba(201,183,157,.06), transparent 28%),
+    linear-gradient(180deg, rgba(231,228,221,.05), rgba(145,216,162,.018));
+  box-shadow: 0 26px 92px rgba(0,0,0,.27);
+  overflow: visible;
+}
+body[data-motion-variant="synthesis"] .work-item:nth-child(even),
+body[data-motion-variant="synthesis"] .project-card:nth-child(even),
+body[data-motion-variant="synthesis"] .job:nth-child(even) { border-radius: 10px 34px 10px 34px; }
+body[data-motion-variant="synthesis"] .profile-card,
+body[data-motion-variant="synthesis"] .hero-aside { border-radius: 34px 10px 34px 10px; }
+body[data-motion-variant="synthesis"] .work-item::before,
+body[data-motion-variant="synthesis"] .resume-card::before,
+body[data-motion-variant="synthesis"] .job::before,
+body[data-motion-variant="synthesis"] .project-card::before,
+body[data-motion-variant="synthesis"] .rail-card::before {
+  content:''; position:absolute; left:0; top:26px; width:2px; height:72px; background:linear-gradient(var(--warm), transparent); opacity:.78;
+}
+body[data-motion-variant="synthesis"] .work-item::after,
+body[data-motion-variant="synthesis"] .project-card::after,
+body[data-motion-variant="synthesis"] .job::after { content:none; display:none; }
+body[data-motion-variant="synthesis"] .work-trigger {
+  grid-template-columns: 58px minmax(0, 1fr) minmax(292px, .46fr) 52px;
+  padding-top: 34px;
+  padding-bottom: 34px;
+}
+body[data-motion-variant="synthesis"] .work-title-wrap { display:grid; gap:10px; align-content:center; }
+body[data-motion-variant="synthesis"] .work-type {
+  width:max-content;
+  display:inline-flex;
+  align-items:center;
+  min-height:24px;
+  padding:0 10px;
+  border:1px solid rgba(201,183,157,.2);
+  border-radius:14px 5px 14px 5px;
+  color:rgba(231,228,221,.78);
+  background:rgba(231,228,221,.035);
+  font:600 10px/1 var(--mono);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+body[data-motion-variant="synthesis"] .work-type.is-work {
+  border-color:rgba(145,216,162,.26);
+  color:rgba(145,216,162,.88);
+  background:rgba(145,216,162,.055);
+}
+body[data-motion-variant="synthesis"] .work-type.is-personal {
+  border-color:rgba(201,183,157,.27);
+  color:rgba(201,183,157,.92);
+  background:rgba(201,183,157,.052);
+}
+body[data-motion-variant="synthesis"] .work-summary { margin-top:0; max-width:760px; }
+body[data-motion-variant="synthesis"] .metric {
+  border-radius: 14px 5px 14px 5px;
+  border-color: rgba(201,183,157,.16);
+  background: rgba(231,228,221,.026);
+}
+body[data-motion-variant="synthesis"] .work-trigger:hover .work-title,
+body[data-motion-variant="synthesis"] .resume-card:hover h3,
+body[data-motion-variant="synthesis"] .project-card:hover .item-head h3 { color: var(--ink); }
+body[data-motion-variant="synthesis"] .metric b { color: var(--ink); text-shadow: 0 0 24px rgba(145,216,162,.08); }
+body[data-motion-variant="synthesis"] .method-wrap { grid-template-columns: minmax(0,.72fr) minmax(640px,1.28fr); }
+body[data-motion-variant="synthesis"] .model {
+  border-color: rgba(145,216,162,.2);
+  border-radius: 34px 10px 34px 10px;
+  background-image:
+    linear-gradient(rgba(145,216,162,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(145,216,162,.035) 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(201,183,157,.12), transparent 27%, rgba(145,216,162,.055) 28%, rgba(18,18,20,.76) 63%);
+  background-size: 42px 42px, 42px 42px, 100% 100%;
+  box-shadow: 0 32px 120px rgba(0,0,0,.34), 0 0 0 1px rgba(145,216,162,.045);
+  overflow:hidden;
+}
+body[data-motion-variant="synthesis"] .model-core {
+  border-color: rgba(145,216,162,.32);
+  box-shadow: 0 0 50px rgba(145,216,162,.12);
+}
+body[data-motion-variant="synthesis"] .node {
+  border-color: rgba(145,216,162,.18);
+  border-radius: 24px 8px;
+  background: rgba(7,12,11,.9);
+  backdrop-filter: blur(16px);
+}
+body[data-motion-variant="synthesis"] .node b::before { content:'// '; color: var(--os-green); }
+body[data-motion-variant="synthesis"] .node.is-linked,
+body[data-motion-variant="synthesis"] .node:hover {
+  border-color: rgba(145,216,162,.52);
+  box-shadow: 0 0 0 1px rgba(145,216,162,.12), 0 0 32px rgba(145,216,162,.09);
+}
+body[data-motion-variant="synthesis"] .flow { border-color: rgba(145,216,162,.16); background: rgba(145,216,162,.12); border-radius: 24px 8px; }
+body[data-motion-variant="synthesis"] .flow-step { background: linear-gradient(180deg, rgba(20,20,22,.92), rgba(10,13,12,.88)); }
+body[data-motion-variant="synthesis"] .flow-step small { color: var(--os-green); }
+body[data-motion-variant="synthesis"] .badge,
+body[data-motion-variant="synthesis"] .tag,
+body[data-motion-variant="synthesis"] .btn { border-radius: 18px 7px 18px 7px; }
+@media (max-width: 1100px) {
+  body[data-motion-variant="synthesis"] .method-wrap,
+  body[data-motion-variant="synthesis"] .hero,
+  body[data-motion-variant="synthesis"] .page .hero { grid-template-columns:1fr; }
+}
+@media (max-width: 720px) {
+  body[data-motion-variant="synthesis"] .work-trigger { grid-template-columns:44px minmax(0,1fr) 38px; }
+  body[data-motion-variant="synthesis"] .work-type { min-height:22px; padding-inline:9px; }
+}
+
+/* OS/CLI polish: keep flow cards warm; use green as small signal accents. */
+body[data-motion-variant="synthesis"] .dock a.is-active::after,
+body[data-motion-variant="synthesis"] .mini-dock a.is-active::after {
+  background: linear-gradient(90deg, var(--warm), var(--os-green));
+  box-shadow: 0 0 14px rgba(145,216,162,.3);
+}
+body[data-motion-variant="synthesis"] .section-kicker::after,
+body[data-motion-variant="synthesis"] .kicker::after,
+body[data-motion-variant="synthesis"] .section-num::after {
+  content:'_';
+  margin-left:2px;
+  color:var(--os-green);
+  opacity:.68;
+}
+body[data-motion-variant="synthesis"] .signal-panel,
+body[data-motion-variant="synthesis"] .profile-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(25,25,28,.86), rgba(14,14,16,.76)),
+    radial-gradient(circle at 12% 0%, rgba(145,216,162,.08), transparent 32%);
+}
+body[data-motion-variant="synthesis"] .signal-head span:first-child::before,
+body[data-motion-variant="synthesis"] .profile-card h2::before {
+  content:'$ ';
+  color:var(--os-green);
+  letter-spacing:.08em;
+}
+body[data-motion-variant="synthesis"] .signal-panel::after,
+body[data-motion-variant="synthesis"] .profile-card::after {
+  content:'senwei@ai-native % inspect --systems';
+  position:absolute;
+  left:20px;
+  right:20px;
+  bottom:16px;
+  color:rgba(145,216,162,.54);
+  font:600 10px/1 var(--mono);
+  letter-spacing:.12em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+body[data-motion-variant="synthesis"] .trace { padding-bottom: 38px; }
+body[data-motion-variant="synthesis"] .profile-grid,
+body[data-motion-variant="synthesis"] .metric-grid { padding-bottom:34px; }
+body[data-motion-variant="synthesis"] .profile-status::before,
+body[data-motion-variant="synthesis"] .availability::before,
+body[data-motion-variant="synthesis"] .prototype-note::before {
+  background:var(--os-green);
+  box-shadow:0 0 18px rgba(145,216,162,.72);
+}
+body[data-motion-variant="synthesis"] .work-head { position:relative; }
+body[data-motion-variant="synthesis"] .work-head::after {
+  content:'senwei@portfolio % list --scope=work,personal';
+  position:absolute;
+  left:0;
+  bottom:-34px;
+  color:rgba(145,216,162,.54);
+  font:600 10px/1 var(--mono);
+  letter-spacing:.12em;
+}
+body[data-motion-variant="synthesis"] .work-num::before {
+  content:'>';
+  display:block;
+  margin-bottom:6px;
+  color:var(--os-green);
+  font-weight:700;
+  opacity:.7;
+}
+body[data-motion-variant="synthesis"] .work-num {
+  display:grid;
+  justify-items:center;
+  align-content:center;
+  width:100%;
+  padding-left:12px;
+  line-height:1;
+}
+body[data-motion-variant="synthesis"] .metric-row .metric:first-child {
+  border-color:rgba(145,216,162,.2);
+  color:rgba(145,216,162,.84);
+}
+body[data-motion-variant="synthesis"] .case-label::before {
+  content:'$ ';
+  color:var(--os-green);
+}
+body[data-motion-variant="synthesis"] .case-pill strong::before {
+  content:'--';
+  margin-right:4px;
+  color:rgba(145,216,162,.54);
+  font-family:var(--mono);
+  font-weight:600;
+}
+body[data-motion-variant="synthesis"] .tag::before,
+body[data-motion-variant="synthesis"] .badge::before {
+  content:'/';
+  margin-right:5px;
+  color:rgba(145,216,162,.58);
+}
+body[data-motion-variant="synthesis"] .resume-card::after {
+  content:'open --resume';
+  position:absolute;
+  right:22px;
+  top:20px;
+  color:rgba(145,216,162,.46);
+  font:600 10px/1 var(--mono);
+  letter-spacing:.14em;
+}
+body[data-motion-variant="synthesis"] .footer-inner::before {
+  content:'senwei@system % deploy capability';
+  position:absolute;
+  left:0;
+  top:-36px;
+  color:rgba(145,216,162,.48);
+  font:600 10px/1 var(--mono);
+  letter-spacing:.12em;
+}
+body[data-motion-variant="synthesis"] .footer-inner { position:relative; }
+
+body[data-motion-variant="synthesis"] .flow {
+  border-color:rgba(201,183,157,.17);
+  background:rgba(201,183,157,.13);
+  border-radius:24px 8px;
+  box-shadow:0 24px 80px rgba(0,0,0,.22);
+}
+body[data-motion-variant="synthesis"] .flow-step {
+  background:
+    linear-gradient(180deg, rgba(24,23,22,.94), rgba(12,12,13,.9)),
+    radial-gradient(circle at 12% 8%, rgba(201,183,157,.08), transparent 38%);
+}
+body[data-motion-variant="synthesis"] .flow-step small {
+  color:rgba(201,183,157,.66);
+}
+body[data-motion-variant="synthesis"] .flow-step small::before {
+  content:'step/';
+  color:rgba(201,183,157,.36);
+}
+body[data-motion-variant="synthesis"] .flow-step b {
+  color:var(--ink-soft);
+}
+body[data-motion-variant="synthesis"] .side-rail::before {
+  content:'resume@senwei % grep capability';
+  display:block;
+  padding:0 4px 2px;
+  color:rgba(145,216,162,.48);
+  font:600 10px/1.3 var(--mono);
+  letter-spacing:.1em;
+}
+body[data-motion-variant="synthesis"] .top-meta {
+  color:rgba(145,216,162,.58);
+}
+body[data-motion-variant="synthesis"] .rail-nav a.is-active::before {
+  content:'>';
+  margin-right:6px;
+  color:var(--os-green);
+}
+
+body[data-motion-page="resume-agent"] .topbar,
+body[data-motion-page="resume-data"] .topbar {
+  padding: 8px 12px;
+  border: 1px solid rgba(201,183,157,.1);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(11,11,12,.88), rgba(11,11,12,.58));
+  backdrop-filter: blur(18px) saturate(115%);
+  box-shadow: 0 18px 56px rgba(0,0,0,.24);
+}
+body[data-motion-page="resume-agent"] .topbar > *,
+body[data-motion-page="resume-data"] .topbar > * {
+  position: relative;
+  z-index: 1;
+}
+body[data-motion-page="resume-agent"] .back-link,
+body[data-motion-page="resume-data"] .back-link {
+  padding: 8px 16px 8px 8px;
+  border: 1px solid rgba(201,183,157,.14);
+  border-radius: 999px;
+  background: rgba(14,14,15,.78);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.014);
+  transition: transform .24s ease, border-color .24s ease, color .24s ease, background .24s ease;
+}
+body[data-motion-page="resume-agent"] .back-link:hover,
+body[data-motion-page="resume-agent"] .back-link:focus-visible,
+body[data-motion-page="resume-data"] .back-link:hover,
+body[data-motion-page="resume-data"] .back-link:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(145,216,162,.24);
+  color: var(--ink);
+  outline: none;
+}
+body[data-motion-page="resume-agent"] .page,
+body[data-motion-page="resume-data"] .page {
+  padding-top: 134px;
+}
+body[data-motion-page="resume-agent"] .section,
+body[data-motion-page="resume-data"] .section {
+  scroll-margin-top: 138px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body[data-motion-variant="synthesis"] .work-item,
+  body[data-motion-variant="synthesis"] .resume-card,
+  body[data-motion-variant="synthesis"] .profile-card,
+  body[data-motion-variant="synthesis"] .signal-panel,
+  body[data-motion-variant="synthesis"] .job,
+  body[data-motion-variant="synthesis"] .project-card,
+  body[data-motion-variant="synthesis"] .rail-card,
+  body[data-motion-variant="synthesis"] .flow-step,
+  body[data-motion-variant="synthesis"] .cap,
+  body[data-motion-variant="synthesis"] .edu-card {
+    transition: box-shadow .28s ease, border-color .28s ease, background-color .28s ease;
+    will-change: transform;
+  }
+  body[data-motion-variant="synthesis"] .work-item:hover,
+  body[data-motion-variant="synthesis"] .resume-card:hover,
+  body[data-motion-variant="synthesis"] .profile-card:hover,
+  body[data-motion-variant="synthesis"] .signal-panel:hover,
+  body[data-motion-variant="synthesis"] .job:hover,
+  body[data-motion-variant="synthesis"] .project-card:hover,
+  body[data-motion-variant="synthesis"] .rail-card:hover,
+  body[data-motion-variant="synthesis"] .flow-step:hover,
+  body[data-motion-variant="synthesis"] .cap:hover,
+  body[data-motion-variant="synthesis"] .edu-card:hover {
+    border-color: rgba(145,216,162,.18);
+    box-shadow: 0 34px 110px rgba(0,0,0,.3);
+  }
+
+  body[data-motion-page="resume-agent"] .job,
+  body[data-motion-page="resume-agent"] .project-card,
+  body[data-motion-page="resume-agent"] .rail-card,
+  body[data-motion-page="resume-agent"] .edu-card,
+  body[data-motion-page="resume-data"] .job,
+  body[data-motion-page="resume-data"] .project-card,
+  body[data-motion-page="resume-data"] .rail-card,
+  body[data-motion-page="resume-data"] .edu-card {
+    isolation: isolate;
+    transition:
+      box-shadow .42s ease,
+      border-color .42s ease,
+      background-color .42s ease;
+    will-change: transform;
+  }
+
+  body[data-motion-page="resume-agent"] .job::after,
+  body[data-motion-page="resume-agent"] .project-card::after,
+  body[data-motion-page="resume-agent"] .rail-card::after,
+  body[data-motion-page="resume-agent"] .edu-card::after,
+  body[data-motion-page="resume-data"] .job::after,
+  body[data-motion-page="resume-data"] .project-card::after,
+  body[data-motion-page="resume-data"] .rail-card::after,
+  body[data-motion-page="resume-data"] .edu-card::after {
+    content: '';
+    position: absolute;
+    left: 11%;
+    right: 11%;
+    bottom: -24px;
+    height: 30px;
+    border-radius: 999px;
+    background:
+      radial-gradient(62% 118% at 50% 44%, rgba(0,0,0,.34) 0%, rgba(0,0,0,.18) 34%, rgba(145,216,162,.09) 58%, transparent 78%);
+    filter: blur(17px);
+    opacity: 0;
+    transform: translateY(10px) scaleX(.82);
+    transform-origin: center top;
+    transition:
+      opacity .42s ease,
+      transform .52s cubic-bezier(.18,.82,.2,1);
+    z-index: -1;
+    display: block;
+  }
+
+  body[data-motion-page="resume-agent"] .job:hover,
+  body[data-motion-page="resume-agent"] .project-card:hover,
+  body[data-motion-page="resume-agent"] .rail-card:hover,
+  body[data-motion-page="resume-agent"] .edu-card:hover,
+  body[data-motion-page="resume-data"] .job:hover,
+  body[data-motion-page="resume-data"] .project-card:hover,
+  body[data-motion-page="resume-data"] .rail-card:hover,
+  body[data-motion-page="resume-data"] .edu-card:hover {
+    box-shadow:
+      0 40px 120px rgba(0,0,0,.31),
+      0 0 0 1px rgba(145,216,162,.05);
+  }
+
+  body[data-motion-page="resume-agent"] .job:hover::after,
+  body[data-motion-page="resume-agent"] .project-card:hover::after,
+  body[data-motion-page="resume-agent"] .rail-card:hover::after,
+  body[data-motion-page="resume-agent"] .edu-card:hover::after,
+  body[data-motion-page="resume-data"] .job:hover::after,
+  body[data-motion-page="resume-data"] .project-card:hover::after,
+  body[data-motion-page="resume-data"] .rail-card:hover::after,
+  body[data-motion-page="resume-data"] .edu-card:hover::after {
+    opacity: .96;
+    transform: translateY(0) scaleX(1);
+  }
+}
+
+@media (max-width:720px) {
+  body[data-motion-variant="synthesis"] .signal-panel::after,
+  body[data-motion-variant="synthesis"] .profile-card::after,
+  body[data-motion-variant="synthesis"] .work-head::after,
+  body[data-motion-variant="synthesis"] .footer-inner::before,
+  body[data-motion-variant="synthesis"] .side-rail::before { display:none; }
+  body[data-motion-variant="synthesis"] .profile-grid,
+  body[data-motion-variant="synthesis"] .metric-grid,
+  body[data-motion-variant="synthesis"] .trace { padding-bottom:0; }
+  body[data-motion-page="resume-agent"] .topbar,
+  body[data-motion-page="resume-data"] .topbar { padding: 6px 8px; }
+  body[data-motion-page="resume-agent"] .back-link,
+  body[data-motion-page="resume-data"] .back-link { padding-right: 10px; }
+  body[data-motion-page="resume-agent"] .page,
+  body[data-motion-page="resume-data"] .page { padding-top: 122px; }
+  body[data-motion-page="resume-agent"] .section,
+  body[data-motion-page="resume-data"] .section { scroll-margin-top: 126px; }
+}
