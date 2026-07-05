@@ -12,7 +12,6 @@ mkdirSync(outDir, { recursive: true });
 // Copy V6-v2 pages
 const pages = [
   ['index.html', 'index.html'],
-  ['resume-data-strategy.html', 'resume-data-strategy.html'],
   ['resume-agent-native.html', 'resume-agent-native.html'],
 ];
 
