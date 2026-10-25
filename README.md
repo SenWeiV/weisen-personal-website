@@ -1,47 +1,34 @@
-# Personal Portal
+# Wei Sen / Vincent
 
-A minimal, elegant personal website inspired by [dagn.space](https://dagn.space).
+Personal website: [profile.vincentws.com](https://profile.vincentws.com).
 
-## 🔗 Live Demo
+## Current website
 
-| 平台 | 地址 |
-|------|------|
-| Custom Domain | https://profile.vincentws.com |
+The published homepage is **A4 · Kinetic assembly**, a static HTML/CSS/JavaScript site in `site/`.
 
-## Tech Stack
+- Original WebGL assembly with 144 faceted cells, wireframe, orbital paths and moving signals.
+- Drag to rotate, hold to expand, tap or press Space to send a ripple, and unfold or reassemble the structure.
+- Scroll-driven forms, three structure presets, keyboard controls, reduced-motion and a simplified Canvas fallback.
+- One paper background and an electric-blue accent; all fonts and animation libraries are self-hosted.
+- Current work: Garena, 2026–present, Agent Harness & Data evaluation.
 
-- **Next.js 14+** - React framework with App Router
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first styling
-- **Framer Motion** - Smooth animations
+Design rationale: [site/DESIGN.md](site/DESIGN.md). Resources and licenses: [site/ASSETS.md](site/ASSETS.md). Research and validation: [docs/a4-design-and-validation.md](docs/a4-design-and-validation.md).
 
-## Features
+## Build and preview
 
-- 🌙 Dark theme with elegant typography
-- ✨ Smooth entrance animations
-- 📱 Fully responsive design
-- 🚀 Fast and optimized
+Node.js 20 or newer is sufficient. No dependency installation is needed for the static build.
 
-## Getting Started
-
-```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
+```sh
+npm run build:pages
+python3 -m http.server 8791 --bind 127.0.0.1 --directory out
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+Open [localhost:8791](http://127.0.0.1:8791/).
 
-## Customization
+Pushing `main` runs `.github/workflows/deploy.yml`: build `out/`, upload the artifact, then deploy to GitHub Pages. The build emits `version.json` with the design version and deployed commit.
 
-- Edit `src/components/Hero.tsx` to update personal info
-- Edit `src/data/projects.ts` to add your projects
+The existing resume at `/resume-agent-native.html` is built from `motion-variants/06-synthesis-v2/`. Its 0705 content is retained; the build adjusts return links to the new homepage and uses local GSAP dependencies.
 
-## License
+## Historical implementations
 
-MIT
+`src/` contains the earlier Next.js implementation. `motion-variants/` contains earlier static designs. They are retained for reference; the homepage build uses `site/`.
